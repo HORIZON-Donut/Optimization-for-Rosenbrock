@@ -8,6 +8,8 @@
 
 static double line_search(double (*f)(double, double), double x, double y, double dx, double dy)
 {
+	int count = 0;
+
 	double lb = -10.0; // Set Left Bound
 	double rb = 10.0; // Set Right Bound
 
@@ -16,8 +18,10 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 	double c = rb - gr * (rb - lb);
 	double d = lb - gr * (rb - lb);
 
-	while (fabs(c - d) > 1.e-5)
+	while (fabs(c - d) > 1.e-5 && count < MAX_ITR)
 	{
+		count++;
+
 		printf("During line search: Condition = %lf\n", fabs(c - d));
 
 		double fc = f(x + c * dx, y + c * dy);
