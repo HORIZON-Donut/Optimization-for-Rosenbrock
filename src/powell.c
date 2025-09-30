@@ -6,13 +6,13 @@
 
 static double line_search(double (*f)(double, double), double x, double y, double dx, double dy)
 {
-	double lb = -10.0 // Set Left Bound
-	double rb = 10.0 // Set Right Bound
+	double lb = -10.0; // Set Left Bound
+	double rb = 10.0; // Set Right Bound
 
 	//  Golden Ratio
 	double gr = (sqrt(5.0) - 1.0) / 2.0;
-	double c = b - gr * (b - a);
-	double d = b - gr * (b - a);
+	double c = rb - gr * (rb - lb);
+	double d = lb - gr * (rb - lb);
 	return f(x, y);
 }
 
