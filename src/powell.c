@@ -1,6 +1,7 @@
 
 #include "powell.h"
 
+#include <stdio.h>
 #include <math.h>
 
 #include "util.h"
@@ -17,6 +18,8 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 
 	while (fabs(c - d) > 1.e-5)
 	{
+		printf("During line search: Condition = %lf\n", fabs(c - d));
+
 		double fc = f(x + c * dx, y + c * dy);
 		double fd = f(x + d * dx, y + d * dy);
 
@@ -61,6 +64,8 @@ void PowellMethod(double (*f)(double, double), Point* start, Point* point)
 			x = x + t * dx;
 			y = y + t * dy;
 		}
+
+		printf("Current position: X = %lf, Y = %lf, F = %lf\n", x ,y, f(x, y));
 
 		if (fabs(f_start - f(x, y)) < 1e-6)
 			break;
