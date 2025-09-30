@@ -77,6 +77,9 @@ def Centroid(points):
 
     return [r / n for r in result]
 
+// Function for generate vertic point
+void InitialPoint(Point point, Point* points);
+
 def Initial_Simplex_Point(p=3, s=0.05):
     """Generate initial simplex points."""
     init_sim = []
@@ -91,6 +94,11 @@ def Initial_Simplex_Point(p=3, s=0.05):
 
 void NelderMeanMethod(double (*f)(double, double), Point* start, Point* result)
 {
+}
+
+void InitialPoint(Point point, Point* points)
+{
+	//
 }
 
 def Nelder_Mead_simplex_method(points, errors, x, y):
