@@ -12,6 +12,7 @@ typedef struct Point
 	double f;
 }Point;
 
+void InitialPoint(Point* point, double x, double y);
 void printPoint(Point point);
 
 #endif
