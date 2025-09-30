@@ -4,9 +4,6 @@
 #include "rosenbrock.h"
 #include "powell.h"
 
-// function to test util function
-void testEditPointData(Point* point);
-
 // function use to implement Powell Method
 void PowellMethodImp(Point* point, int num);
 
@@ -37,12 +34,4 @@ void PowellMethodImp(Point* point, int num)
 	for (int i = 0; i < num; i++)
 	{
 	}
-}
-
-void testEditPointData(Point* point)
-{
-	point->x = 1;
-	point->y = 2;
-
-	point->f = 10;
 }
