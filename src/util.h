@@ -14,6 +14,5 @@ typedef struct Point
 
 void InitialPoint(Point* point, double x, double y);
 void printPoint(Point point);
-void norm(Point point, Point* target);
 
 #endif
