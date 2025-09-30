@@ -3,10 +3,12 @@
 #include "util.h"
 #include "rosenbrock.h"
 
+// function to test rosenbrock function
 void RosenbrockFirstCase();
 void RosenbrockSecondCase();
 void RosenbrockThirdCase();
 
+// function to test util function
 void testEditPointData(Point* point);
 
 int main()
