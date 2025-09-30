@@ -21,14 +21,18 @@ int main()
 	printf("testing point data carrier\n");
 
 	Point point0;
-
 	testEditPointData(point0);
+	printPoint(point0);
 	
 	return 0;
 }
 
 void testEditPointData(Point point)
 {
+	point.x = 1;
+	point.y = 2;
+
+	point.f = 10;
 }
 
 void RosenbrockFirstCase()
