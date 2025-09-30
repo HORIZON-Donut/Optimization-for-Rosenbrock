@@ -4,6 +4,6 @@
 
 #include "util.h"
 
-void PowellMethod(Point point);
+void PowellMethod(Point* point);
 
 #endif
