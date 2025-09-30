@@ -10,19 +10,17 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 {
 	int count = 0;
 
-	double lb = -10.0; // Set Left Bound
-	double rb = 10.0; // Set Right Bound
+	double lb = -10; // Set Left Bound
+	double rb = 10; // Set Right Bound
 
 	//  Golden Ratio
 	double gr = (sqrt(5.0) - 1.0) / 2.0;
 	double c = rb - gr * (rb - lb);
-	double d = lb - gr * (rb - lb);
+	double d = lb + gr * (rb - lb);
 
 	while (fabs(c - d) > 1.e-5 && count < MAX_ITR)
 	{
 		count++;
-
-		printf("During line search: Condition = %lf\n", fabs(c - d));
 
 		double fc = f(x + c * dx, y + c * dy);
 		double fd = f(x + d * dx, y + d * dy);
@@ -31,7 +29,7 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 		{
 			rb = d;
 			d = c;
-			d = rb - gr * (rb - lb);
+			c = rb - gr * (rb - lb);
 		}
 
 		else
