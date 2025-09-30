@@ -67,8 +67,6 @@ void PowellMethod(double (*f)(double, double), Point* start, Point* point)
 			y = y + t * dy;
 		}
 
-		printf("Current position: X = %lf, Y = %lf, F = %lf\n", x ,y, f(x, y));
-
 		if (fabs(f_start - f(x, y)) < 1e-6)
 			break;
 	}
