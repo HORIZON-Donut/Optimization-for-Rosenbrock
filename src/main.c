@@ -24,8 +24,9 @@ int main()
 	printf("testing point data carrier\n");
 
 	Point point0;
-	testEditPointData(&point0);
-	PowellMethod(&point0);
+	Point start;
+	testEditPointData(&start);
+	PowellMethod(Rosenbrock, &start, &point0);
 	printPoint(point0);
 	
 	return 0;
