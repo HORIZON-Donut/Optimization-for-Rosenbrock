@@ -3,7 +3,9 @@ CFLAGS = -Wall -Wextra
 
 SRC_DIR = src
 BUILD_DIR = build
-TARGET = run
+BIN_DIR = bin
+TARGET_NAME = run
+TARGET = $(BIN_DIR)/$(TARGET_NAME)
 
 SRCS = $(wildcard $(SRC_DIR)/*.c)
 OBJS = $(patsubst $(SRC_DIR)/%.c, $(BUILD_DIR)/%.o, $(SRCS))
