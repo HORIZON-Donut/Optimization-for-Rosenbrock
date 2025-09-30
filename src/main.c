@@ -2,6 +2,7 @@
 
 #include "util.h"
 #include "rosenbrock.h"
+#include "powell.h"
 
 // function to test rosenbrock function
 void RosenbrockFirstCase();
@@ -24,6 +25,7 @@ int main()
 
 	Point point0;
 	testEditPointData(&point0);
+	PowellMethod(&point0);
 	printPoint(point0);
 	
 	return 0;
