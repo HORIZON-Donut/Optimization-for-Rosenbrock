@@ -5,7 +5,7 @@
 #include "powell.h"
 
 // function use to implement Powell Method
-void PowellMethodImp(Point* point, int num);
+void PowellMethodImp(Point* points, int num);
 
 int main()
 {
@@ -29,9 +29,17 @@ int main()
 	return 0;
 }
 
-void PowellMethodImp(Point* point, int num)
+void PowellMethodImp(Point* points, int num)
 {
+	Point result;
+
 	for (int i = 0; i < num; i++)
 	{
+		PowellMethod(Rosenbrock, &points[i], &result);
+
+		printf("Point %d:\n", i + 1);
+		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);
+		printf("Final position:\n");
+		printPoint(result);
 	}
 }
