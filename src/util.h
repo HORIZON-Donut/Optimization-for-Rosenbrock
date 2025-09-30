@@ -10,4 +10,6 @@ typedef struct Point
 	double f;
 }Point;
 
+void printPoint(Point point);
+
 #endif
