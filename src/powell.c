@@ -18,12 +18,16 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 	double c = rb - gr * (rb - lb);
 	double d = lb + gr * (rb - lb);
 
+	// Define variable for fc and fd
+	double fc;
+	double fd;
+
 	while (fabs(c - d) > 1.e-5 && count < MAX_ITR)
 	{
 		count++;
 
-		double fc = f(x + c * dx, y + c * dy);
-		double fd = f(x + d * dx, y + d * dy);
+		fc = f(x + c * dx, y + c * dy);
+		fd = f(x + d * dx, y + d * dy);
 
 		if (fc < fd)
 		{
@@ -39,6 +43,7 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 			d = lb + gr * ( rb - lb);
 		}
 	}
+
 	return (lb + rb) / 2.0;
 }
 
@@ -50,18 +55,27 @@ void PowellMethod(double (*f)(double, double), Point* start, Point* point)
 
 	double dirs[2][2] = { {1.0, 0.0}, {0.0, 1.0} };
 
+	// Define variable for forloop
+	double f_start;
+	double x_old;
+	double y_old;
+
+	double dx;
+	double dy;
+	double t;
+
 	for (int i = 0; i < MAX_ITR; i++)
 	{
-		double f_start = f(x, y);
-		double x_old = x;
-		double y_old = y;
+		f_start = f(x, y);
+		x_old = x;
+		y_old = y;
 
 		for (int j = 0; j < 2; j++)
 		{
-			double dx = dirs[j][0];
-			double dy = dirs[j][1];
+			dx = dirs[j][0];
+			dy = dirs[j][1];
 
-			double t = line_search(f, x, y, dx, dy);
+			t = line_search(f, x, y, dx, dy);
 
 			x = x + t * dx;
 			y = y + t * dy;
