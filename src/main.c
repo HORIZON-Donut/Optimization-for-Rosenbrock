@@ -13,12 +13,21 @@ void PowellMethodImp(Point* point, int num);
 int main()
 {
 	// Initial starting point
-	Point point0;
-	Point start;
+	Point point1;
+	Point point2;
+	Point point3;
+	Point point4;
 
-	testEditPointData(&start);
-	PowellMethod(Rosenbrock, &start, &point0);
-	printPoint(point0);
+	// Set starting point
+	InitialPoint(&point1, 2, 2);
+	InitialPoint(&point2, 2, -2);
+	InitialPoint(&point3, -2, 1);
+	InitialPoint(&point4, 2, 1);
+
+	// Set point array for easy access
+	Point points[4] = {point1, point2, point3, point4};
+
+	PowellMethodImp(points, 4);
 	
 	return 0;
 }
