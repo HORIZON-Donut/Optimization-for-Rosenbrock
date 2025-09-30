@@ -3,6 +3,8 @@
 
 #include <math.h>
 
+#include "util.h"
+
 static double line_search(double (*f)(double, double), double x, double y, double dx, double dy)
 {
 	double lb = -10.0; // Set Left Bound
@@ -37,4 +39,34 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 
 void PowellMethod(double (*f)(double, double), Point* start, Point* point)
 {
+	// Prepare start x, y variable
+	double x = start->x;
+	double y = start->y;
+
+	double dirs[2][2] = { {1.0, 0.0}, {0.0, 1.0} };
+
+	for (int i = 0; i < MAX_ITR; i++)
+	{
+		double f_start = f(x, y);
+		double x_old = x;
+		double y_old = y;
+
+		for (int j = 0; j < 2; j++)
+		{
+			double dx = dirs[j][0];
+			double dy = dirs[j][1];
+
+			double t = line_search(f, x, y, dx, dy);
+
+			x = x + t * dx;
+			y = y + t * dy;
+		}
+
+		if (fabs(f_start - f(x, y)) < 1e-6)
+			break;
+	}
+
+	point->x = x;
+	point->y = y;
+	point->f = f(x, y);
 }
