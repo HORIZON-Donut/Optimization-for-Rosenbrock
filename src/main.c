@@ -1,10 +1,13 @@
 #include <stdio.h>
 
+#include "util.h"
 #include "rosenbrock.h"
 
 void RosenbrockFirstCase();
 void RosenbrockSecondCase();
 void RosenbrockThirdCase();
+
+void testEditPointData(Point point);
 
 int main()
 {
@@ -14,8 +17,18 @@ int main()
 	RosenbrockFirstCase();
 	RosenbrockSecondCase();
 	RosenbrockThirdCase();
+
+	printf("testing point data carrier\n");
+
+	Point point0;
+
+	testEditPointData(point0);
 	
 	return 0;
+}
+
+void testEditPointData(Point point)
+{
 }
 
 void RosenbrockFirstCase()
