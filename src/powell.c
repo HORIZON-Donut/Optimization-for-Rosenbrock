@@ -1,10 +1,18 @@
 
 #include "powell.h"
 
+#include <math.h>
 #include "rosenbrock.h"
 
-static double line_search(double (*f)(double, double), double x, double y)
+static double line_search(double (*f)(double, double), double x, double y, double dx, double dy)
 {
+	double lb = -10.0 // Set Left Bound
+	double rb = 10.0 // Set Right Bound
+
+	//  Golden Ratio
+	double gr = (sqrt(5.0) - 1.0) / 2.0;
+	double c = b - gr * (b - a);
+	double d = b - gr * (b - a);
 	return f(x, y);
 }
 
