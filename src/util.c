@@ -21,15 +21,15 @@ void sortPoint(Point* point, int num)
 	int i = 0;
 	int swap = 0;
 
-	while (swap = 0)
+	while (swap == 0)
 	{
 		swap = 1;
 		for(i = 0; i < num - 1; i++)
 		{
 			if (point[i].f > point[i+1].f)
 			{
-				swapPoint(&point[i], &point[i+1];
-				swap = 1;
+				swapPoint(&point[i], &point[i+1]);
+				swap = 0;
 			}
 		}
 	}
