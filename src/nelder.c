@@ -50,10 +50,19 @@ def Evaluate_and_Order_Point(points, x, y):
 */
 
 // centroid compute function
-static void centroid(Point* points, Point* result)
+static void centroid(Point* points, int num, Point* result)
 {
-    result->x = (points[0].x + points[1].x) / 2;
-    result->y= (points[0].y + points[1].y) / 2;
+	result->x = 0;
+	result->y = 0;
+
+	for(int i = 0; i < num; i++)
+	{
+		result->x += points[i].x;
+		result->y += points[i].y;
+	}
+
+	result->x = result->x / 2;
+	result->y = result->y / 2;
 }
 
 // Function for generate vertic point
