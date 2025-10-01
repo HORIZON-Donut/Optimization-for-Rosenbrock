@@ -49,15 +49,6 @@ def Shrinks(points, best, x, y, delta=0.5):
     errors = [MSE(pt, x, y) for pt in new_points]
     return new_points, errors
 	
-
-def MSE(p, x=[0, 1, 2, 3], y=[1, 3, 7, 13]):
-    """Mean Squared Error for quadratic function f(x) = ax² + bx + c."""
-    n = len(x)
-    result = 0
-    for i in range(n):
-        result += ((p[0]*x[i]**2 + p[1]*x[i] + p[2]) - y[i])**2
-    return result / n
-
 def Evaluate_and_Order_Point(points, x, y):
     """Evaluate and sort simplex points by MSE."""
     errors = [MSE(pt, x, y) for pt in points]
