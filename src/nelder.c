@@ -4,6 +4,7 @@
 #include "util.h"
 #include "rosenbrock.h"
 
+/*
 def dual_sort(key, data):
     """Sort `data` based on values in `key` (bubble sort style)."""
     n = len(key)
@@ -56,6 +57,7 @@ def Evaluate_and_Order_Point(points, x, y):
     errors = [MSE(pt, x, y) for pt in points]
     sorted_points, sorted_errors = dual_sort(errors, points)
     return sorted_points, sorted_errors
+*/
 
 // centroid compute function
 static void centroid(Point* points, Point* result)
@@ -88,6 +90,7 @@ void NelderMeanMethod(double (*f)(double, double), Point* start, Point* result)
 {
 }
 
+/*
 def Nelder_Mead_simplex_method(points, errors, x, y):
     """Main Nelder-Mead step selection."""
     best, worst = points[0], points[-1]
@@ -150,3 +153,4 @@ def main():
 
 
 main()
+*/
