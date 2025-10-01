@@ -37,8 +37,8 @@ void sortPoint(Point* point, int num)
 
 void swapPoint(Point* point1, Point* point2)
 {
-	Point* tmp = point1;
-	point1 = point2;
-	point2 = tmp;
+	Point tmp = *point1;
+	*point1 = *point2;
+	*point2 = tmp;
 }
 
