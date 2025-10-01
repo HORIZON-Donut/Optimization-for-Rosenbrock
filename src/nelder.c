@@ -78,7 +78,7 @@ def Centroid(points):
     return [r / n for r in result]
 
 // Function for generate vertic point
-void InitialPoint(Point point, Point* points);
+void InitialPoint(Point point, int num, double s, Point* points);
 
 def Initial_Simplex_Point(p=3, s=0.05):
     """Generate initial simplex points."""
@@ -96,9 +96,23 @@ void NelderMeanMethod(double (*f)(double, double), Point* start, Point* result)
 {
 }
 
-void InitialPoint(Point point, Point* points)
+void InitialPoint(Point point, int num, double s, Point* points)
 {
-	//
+	if(num > 3)
+	{
+		printf("Number of point property are exceed or point data are incompatibility with the function\n");
+		return;
+	}
+
+	for(int i = 0; i < num; i++)
+	{
+		points[i]->x = point.x;
+		points[i]->y = point.y;
+
+		if(i == 0) continue;
+		if(i == 1) points[i]->x += s;
+		if(i == 2) points[i]->y += s;
+	}
 }
 
 def Nelder_Mead_simplex_method(points, errors, x, y):
