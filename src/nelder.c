@@ -7,20 +7,6 @@
 #include "rosenbrock.h"
 
 /*
-def dual_sort(key, data):
-    """Sort `data` based on values in `key` (bubble sort style)."""
-    n = len(key)
-    swap = True
-
-    while swap:
-        swap = False
-        for i in range(n - 1):
-            if key[i] > key[i+1]:
-                key[i], key[i+1] = key[i+1], key[i]
-                data[i], data[i+1] = data[i+1], data[i]
-                swap = True
-    return data, key
-
 def Reflection(Xc, Xw, alpha=1.0):
     """Reflection step."""
     return [Xc[i] + alpha*(Xc[i] - Xw[i]) for i in range(len(Xc))]
@@ -53,7 +39,9 @@ def Shrinks(points, best, x, y, delta=0.5):
         new_points.append(new_pt)
     errors = [MSE(pt, x, y) for pt in new_points]
     return new_points, errors
-	
+*/
+
+/*	
 def Evaluate_and_Order_Point(points, x, y):
     """Evaluate and sort simplex points by MSE."""
     errors = [MSE(pt, x, y) for pt in points]
@@ -129,8 +117,9 @@ def Nelder_Mead_simplex_method(points, errors, x, y):
     # Re-sort
     points, errors = dual_sort(errors, points)
     return points, errors
+*/
 
-
+/*
 def Iteration(x=[0, 1, 2, 3], y=[1, 3, 7, 13], itr=20):
     """Run Nelder-Mead for a fixed number of iterations."""
     points = Initial_Simplex_Point(3, 0.05)
