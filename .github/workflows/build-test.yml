@@ -9,9 +9,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-	  - name: Check file in directory
-				run: |
-						ls -l *
+      - name: Check file in directory
+        run: |
+          ls -l *
       - name: Test build
         run: |
-						make
+          make
