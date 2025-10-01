@@ -21,5 +21,7 @@ typedef struct Vertice
 
 void InitialPoint(Point* point, double x, double y);
 void printPoint(Point point);
+void sortPoint(Point* point, int num);
+void swapPoint(Point* point1, Point* point2);
 
 #endif

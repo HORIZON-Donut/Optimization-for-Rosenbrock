@@ -15,3 +15,10 @@ void InitialPoint(Point* point, double x, double y)
 
 	point->f = 0;
 }
+
+void sortPoint(Point* point, int num)
+{
+}
+void swapPoint(Point* point1, Point* point2)
+{
+}
