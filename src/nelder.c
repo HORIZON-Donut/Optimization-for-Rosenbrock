@@ -64,23 +64,12 @@ def Evaluate_and_Order_Point(points, x, y):
     sorted_points, sorted_errors = dual_sort(errors, points)
     return sorted_points, sorted_errors
 
+// centroid compute function
 static void centroid(Point* points, Point* result)
 {
     result->x = (points[0].x + points[1].x) / 2;
     result->y= (points[0].y + points[1].y) / 2;
 }
-
-def Centroid(points):
-    """Compute centroid of given points."""
-    n = len(points)
-    p_dim = len(points[0])
-    result = [0] * p_dim
-
-    for pt in points:
-        for j in range(p_dim):
-            result[j] += pt[j]
-
-    return [r / n for r in result]
 
 // Function for generate vertic point
 static void InitialPoint(Point point, int num, double s, Point* points)
