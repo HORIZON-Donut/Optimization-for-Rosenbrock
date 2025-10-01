@@ -87,6 +87,11 @@ static void InitialVertices(Point point, int num, double s, Point* points)
 
 void NelderMeanMethod(double (*f)(double, double), Point* start, Point* result)
 {
+	int vertices_num = 3;
+	double s = 0.05;
+	Point vertice[vertices_num];
+
+	InitialVertices(*start, vertices_num, s, vertice);
 }
 
 /*
