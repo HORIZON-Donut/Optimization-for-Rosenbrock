@@ -1,6 +1,8 @@
 
 #include "nelder.h"
 
+#include <stdio.h>
+
 #include "util.h"
 #include "rosenbrock.h"
 
