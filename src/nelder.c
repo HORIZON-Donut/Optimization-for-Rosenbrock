@@ -69,7 +69,7 @@ static void centroid(Point* points, Point* result)
 }
 
 // Function for generate vertic point
-static void InitialPoint(Point point, int num, double s, Point* points)
+static void InitialVertices(Point point, int num, double s, Point* points)
 {
 	if(num > 3)
 	{
