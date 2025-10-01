@@ -64,13 +64,12 @@ def Evaluate_and_Order_Point(points, x, y):
     sorted_points, sorted_errors = dual_sort(errors, points)
     return sorted_points, sorted_errors
 
-static void centroid(Point* points, int num, double* result)
+static void centroid(Point* points, Point* result)
 {
-	for(int i = 0; i < mun; i++)
-	{
-		//
-	}
+    result->x = (points[0].x + points[1].x) / 2;
+    result->y= (points[0].y + points[1].y) / 2;
 }
+
 def Centroid(points):
     """Compute centroid of given points."""
     n = len(points)
