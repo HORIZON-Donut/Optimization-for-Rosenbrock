@@ -79,12 +79,12 @@ static void InitialVertices(Point point, int num, double s, Point* points)
 
 	for(int i = 0; i < num; i++)
 	{
-		points[i]->x = point.x;
-		points[i]->y = point.y;
+		points[i].x = point.x;
+		points[i].y = point.y;
 
 		if(i == 0) continue;
-		if(i == 1) points[i]->x += s;
-		if(i == 2) points[i]->y += s;
+		if(i == 1) points[i].x += s;
+		if(i == 2) points[i].y += s;
 	}
 }
 
