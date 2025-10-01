@@ -1,6 +1,15 @@
 
 #include "nelder.h"
 
+#include "util.h"
+#include "rosenbrock.h"
+
+typedef struct Vertice
+{
+	double x;
+    double y;
+    double z;
+}Vertice;
 
 def dual_sort(key, data):
     """Sort `data` based on values in `key` (bubble sort style)."""
