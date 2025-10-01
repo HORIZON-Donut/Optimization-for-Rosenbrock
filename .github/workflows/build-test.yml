@@ -9,9 +9,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      - name: Prepare build and bin directory
+        run: |
+          mkdir bin/
+
       - name: Check file in directory
         run: |
           ls -lR
+
       - name: Test build
         run: |
           make
+      - name: Clean up
+          make clean
