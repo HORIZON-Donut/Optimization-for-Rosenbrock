@@ -41,6 +41,9 @@ def Shrinks(points, best, x, y, delta=0.5):
     return new_points, errors
 */
 
+static void Evaluate_Order_Point(Point points)
+{
+}
 /*	
 def Evaluate_and_Order_Point(points, x, y):
     """Evaluate and sort simplex points by MSE."""
