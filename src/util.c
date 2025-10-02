@@ -2,6 +2,7 @@
 #include "util.h"
 
 #include <stdio.h>
+#include <time.h>
 
 void printPoint(Point point)
 {
@@ -44,7 +45,12 @@ void swapPoint(Point* point1, Point* point2)
 
 void timetosolve(void (*f)(Point*, Point*, unsigned int*), Point* start, Point* result, unsigned int* itr, double* cpu_time)
 {
+	clock_t  s;
+	clock_t  e;
+	
+	s = clock();
 	f(start, result, itr);
+	e = clock();
 
-	*cpu_time = 100;
+	*cpu_time = (double)(e - s) / CLOCKS_PER_SEC;
 }
