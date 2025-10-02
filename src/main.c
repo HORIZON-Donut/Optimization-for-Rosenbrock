@@ -89,7 +89,7 @@ void PowellMethodImp(Point* points, int num)
 	for (int i = 0; i < num; i++)
 	{
 		itr = 0;
-		PowellMethod(Rosenbrock, &points[i], &result, &itr);
+		PowellMethod(&points[i], &result, &itr);
 
 		printf("Point %d:\n", i + 1);
 		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);

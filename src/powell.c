@@ -5,6 +5,7 @@
 #include <math.h>
 
 #include "util.h"
+#include "rosenbrock.h"
 
 static double line_search(double (*f)(double, double), double x, double y, double dx, double dy)
 {
@@ -47,8 +48,10 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 	return (lb + rb) / 2.0;
 }
 
-void PowellMethod(double (*f)(double, double), Point* start, Point* point, unsigned int* itr)
+void PowellMethod(Point* start, Point* point, unsigned int* itr)
 {
+	// Define function f. This is hardcoded.
+	double (*f)(double, double) = Rosenbrock;
 	// Prepare start x, y variable
 	double x = start->x;
 	double y = start->y;
