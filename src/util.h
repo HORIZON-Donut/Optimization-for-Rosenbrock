@@ -19,4 +19,6 @@ void printPoint(Point point);
 void sortPoint(Point* point, int num);
 void swapPoint(Point* point1, Point* point2);
 
+void timetosolve(void (*f)(Point*, Point*, unsigned int*), double cpu_time);
+
 #endif
