@@ -59,6 +59,14 @@ static void mutate(Point *p) {
     p->f = Rosenbrock(p->x, p->y);
 }
 
+// convergence function
+static int converged(Point* point)
+{
+	if (fabs(point->x - 1.0) < EPS_X && fabs(point->y - 1.0) < EPS_X) return 1;
+	if (fabs(point->f) < EPS_F) return 1;
+
+	return 0;
+}
 // Genetic Algorithm main function
 void GeneticAlgorithm(Point *bestResult, Point start, double spread, unsigned int *itr) {
     srand(time(NULL));
