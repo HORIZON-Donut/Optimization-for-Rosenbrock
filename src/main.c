@@ -47,16 +47,18 @@ int main()
 void GeneticAlgo(Point* points, int num)
 {
 	unsigned int itr = 0;
+	double time;
 	Point result;
 
 	for (int i = 0; i < num; i++)
 	{
 		itr = 0;
-		GeneticAlgorithm(&points[i], &result,  &itr);
+		timetosolve(GeneticAlgorithm, &points[i], &result, &itr, &time);
 
 		printf("Point %d:\n", i + 1);
 		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);
 		printf("Iteration used to compute: %d\n", itr);
+		printf("Time use to solve: %lf second\n", time);
 		printf("Final position:\n");
 		printPoint(result);
 	}
