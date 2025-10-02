@@ -15,27 +15,31 @@
 def Reflection(Xc, Xw, alpha=1.0):
     """Reflection step."""
     return [Xc[i] + alpha*(Xc[i] - Xw[i]) for i in range(len(Xc))]
+*/
 
-
+/*
 def Expansion(Xc, Xr, mseXr, x, y, gamma=2.0):
     """Expansion step."""
     Xe = [Xc[i] + gamma*(Xr[i] - Xc[i]) for i in range(len(Xc))]
     mseXe = MSE(Xe, x, y)
     return (Xe if mseXe < mseXr else Xr), min(mseXe, mseXr)
+*/
 
-
+/*
 def Outside_Cont(Xc, Xr, x, y, beta=0.5):
     """Outside contraction."""
     Xoc = [Xc[i] + beta*(Xr[i] - Xc[i]) for i in range(len(Xc))]
     return Xoc, MSE(Xoc, x, y)
+*/
 
-
+/*
 def Inside_Cont(Xc, Xw, x, y, beta=0.5):
     """Inside contraction."""
     Xic = [Xc[i] - beta*(Xc[i] - Xw[i]) for i in range(len(Xc))]
     return Xic, MSE(Xic, x, y)
+*/
 
-
+/*
 def Shrinks(points, best, x, y, delta=0.5):
     """Shrink step."""
     new_points = [best]  # keep best
@@ -77,6 +81,21 @@ static void InitialSimplex(Point* simplex, Point start, double step)
 	simplex[2].x = start.x;
 	simplex[2].y = start.y += step;
 	simplex[2].f = Rosenbrock(simplex[2].x, simplex[2].y);
+}
+
+// Convergence check
+static int convergence(Point* simplex, int num, double eps_f, double eps_x)
+{
+	Point best = simplex[0];
+	Point wors = simplex[n-1];
+
+	double f_range = fabs(wors.f - best.f);
+	double dx = fabs(wors.x - best.x);
+	double dy = fabs(wors.y - best.y);
+	double dist = sqrt(dx*dx + dy*dy);
+
+	if (f_range < eps_f && dist < eps_x) return 1;
+	return 0;
 }
 
 void NelderMeanMethod(double (*f)(double, double), Point* start, Point* result)
