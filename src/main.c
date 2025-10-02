@@ -43,6 +43,7 @@ void NelderMethodImp(Point* points, int num)
 
 	for (int i = 0; i < num; i++)
 	{
+		itr = 0;
 		NelderMeanMethod(&points[i], &result, &itr);
 
 		printf("Point %d:\n", i + 1);
@@ -60,6 +61,7 @@ void PowellMethodImp(Point* points, int num)
 
 	for (int i = 0; i < num; i++)
 	{
+		itr = 0;
 		PowellMethod(Rosenbrock, &points[i], &result, &itr);
 
 		printf("Point %d:\n", i + 1);
