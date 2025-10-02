@@ -47,13 +47,12 @@ int main()
 void GeneticAlgo(Point* points, int num)
 {
 	unsigned int itr = 0;
-	double spread = 3.0;
 	Point result;
 
 	for (int i = 0; i < num; i++)
 	{
 		itr = 0;
-		GeneticAlgorithm(&points[i], &result, spread, &itr);
+		GeneticAlgorithm(&points[i], &result,  &itr);
 
 		printf("Point %d:\n", i + 1);
 		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);
