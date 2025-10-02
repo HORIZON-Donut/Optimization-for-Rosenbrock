@@ -70,7 +70,14 @@ def Shrinks(points, best, x, y, delta=0.5):
     errors = [MSE(pt, x, y) for pt in new_points]
     return new_points, errors
 */
-
+static void shrink(Point* points, int n) {
+    Point best = points[0];
+    for (int i = 1; i < n; i++) {
+        points[i].x = best.x + SIGMA * (points[i].x - best.x);
+        points[i].y = best.y + SIGMA * (points[i].y - best.y);
+        points[i].f = Rosenbrock(points[i].x, points[i].y);
+    }
+}
 // centroid compute function
 static void centroid(Point* points, int num, Point* result)
 {
