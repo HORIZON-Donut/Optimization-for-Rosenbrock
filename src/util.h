@@ -2,7 +2,7 @@
 #ifndef INCLUDE_UTILITY_H
 #define INCLUDE_UTILITY_H
 
-#define MAX_ITR 1000
+#define MAX_ITR 100000
 
 typedef struct Point
 {
