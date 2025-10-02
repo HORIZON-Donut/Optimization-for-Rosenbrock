@@ -42,3 +42,9 @@ void swapPoint(Point* point1, Point* point2)
 	*point2 = tmp;
 }
 
+void timetosolve(void (*f)(Point*, Point*, unsigned int*), Point* start, Point* result, unsigned int* itr, double* cpu_time)
+{
+	f(start, result, itr);
+
+	*cpu_time = 100;
+}
