@@ -46,17 +46,6 @@ def Shrinks(points, best, x, y, delta=0.5):
     return new_points, errors
 */
 
-static void Evaluate_Order_Point(Point points)
-{
-}
-/*	
-def Evaluate_and_Order_Point(points, x, y):
-    """Evaluate and sort simplex points by MSE."""
-    errors = [MSE(pt, x, y) for pt in points]
-    sorted_points, sorted_errors = dual_sort(errors, points)
-    return sorted_points, sorted_errors
-*/
-
 // centroid compute function
 static void centroid(Point* points, int num, Point* result)
 {
