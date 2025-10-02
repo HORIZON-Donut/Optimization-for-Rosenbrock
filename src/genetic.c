@@ -77,7 +77,8 @@ void GeneticAlgorithm(Point *bestResult, Point start, double spread, unsigned in
 
     *bestResult = population[0];
 
-    for (*itr = 0; *itr < MAX_ITR; *itr += 1) {
+	do {
+		*itr += 1;
         // Find best in population
         for (int i = 0; i < POP_SIZE; i++) {
             if (population[i].f < bestResult->f) {
@@ -101,6 +102,6 @@ void GeneticAlgorithm(Point *bestResult, Point start, double spread, unsigned in
         for (int i = 0; i < POP_SIZE; i++) {
             population[i] = newPop[i];
         }
-    }
+    } while (!converged(bestResult) && *itr <= MAX_ITR);
 }
 
