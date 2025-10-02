@@ -17,10 +17,10 @@ static double randDouble(double min, double max) {
 }
 
 // Initialize population randomly
-static void initPopulation(Point *pop, int size) {
+static void initPopulation(Point *pop, int size, Point start, double spread) {
     for (int i = 0; i < size; i++) {
-        pop[i].x = randDouble(-3, 3);
-        pop[i].y = randDouble(-3, 3);
+        pop[i].x = start.x + randDouble(-spread, spread);
+        pop[i].y = start.y + randDouble(-spread, spread);
         pop[i].f = Rosenbrock(pop[i].x, pop[i].y);
     }
 }
