@@ -27,7 +27,10 @@ int main()
 	// Set point array for easy access
 	Point points[4] = {point1, point2, point3, point4};
 
+	printf("Powell method\n");
 	PowellMethodImp(points, 4);
+
+	printf("Nelder mean methos\n");
 	NelderMethodImp(points, 4);
 	
 	return 0;
@@ -41,7 +44,6 @@ void NelderMethodImp(Point* points, int num)
 	{
 		NelderMeanMethod(&points[i], &result);
 
-		printf("Nelder mean methos\n");
 		printf("Point %d:\n", i + 1);
 		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);
 		printf("Final position:\n");
@@ -57,7 +59,6 @@ void PowellMethodImp(Point* points, int num)
 	{
 		PowellMethod(Rosenbrock, &points[i], &result);
 
-		printf("Powell method\n");
 		printf("Point %d:\n", i + 1);
 		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);
 		printf("Final position:\n");
