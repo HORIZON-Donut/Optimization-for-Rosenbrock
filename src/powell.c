@@ -65,8 +65,6 @@ void PowellMethod(double (*f)(double, double), Point* start, Point* point)
 	for (int i = 0; i < MAX_ITR; i++)
 	{
 		f_start = f(x, y);
-		x_old = x;
-		y_old = y;
 
 		for (int j = 0; j < 2; j++)
 		{
