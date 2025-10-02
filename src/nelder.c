@@ -144,18 +144,17 @@ static void nelder_step(Point* simplex, int n)
 }
 
 // Main nelder mean method function
-void NelderMeanMethod(Point* start, Point* result)
+void NelderMeanMethod(Point* start, Point* result, int* itr)
 {
 	int n = 3;
-	int count = 0;
 	Point simplex[n];
 
 	InitialSimplex(simplex, *start, 0.05);
 
-	while(convergence(simplex, n, EPS_F, EPS_X) == 0 && count <= MAX_ITR)
+	while(convergence(simplex, n, EPS_F, EPS_X) == 0 && *itr <= MAX_ITR)
 	{
 		nelder_step(simplex, n);
-		count++;
+		*itr++;
 	}
 
 	sortPoint(simplex, n);

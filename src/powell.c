@@ -47,7 +47,7 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 	return (lb + rb) / 2.0;
 }
 
-void PowellMethod(double (*f)(double, double), Point* start, Point* point)
+void PowellMethod(double (*f)(double, double), Point* start, Point* point, int* itr)
 {
 	// Prepare start x, y variable
 	double x = start->x;
@@ -64,6 +64,7 @@ void PowellMethod(double (*f)(double, double), Point* start, Point* point)
 
 	for (int i = 0; i < MAX_ITR; i++)
 	{
+		*itr++;
 		f_start = f(x, y);
 
 		for (int j = 0; j < 2; j++)

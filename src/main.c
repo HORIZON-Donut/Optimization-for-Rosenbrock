@@ -38,14 +38,16 @@ int main()
 
 void NelderMethodImp(Point* points, int num)
 {
+	int itr = 0;
 	Point result;
 
 	for (int i = 0; i < num; i++)
 	{
-		NelderMeanMethod(&points[i], &result);
+		NelderMeanMethod(&points[i], &result, &itr);
 
 		printf("Point %d:\n", i + 1);
 		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);
+		printf("Iteration used to compute: %d\n", itr);
 		printf("Final position:\n");
 		printPoint(result);
 	}
@@ -53,14 +55,16 @@ void NelderMethodImp(Point* points, int num)
 
 void PowellMethodImp(Point* points, int num)
 {
+	int itr = 0;
 	Point result;
 
 	for (int i = 0; i < num; i++)
 	{
-		PowellMethod(Rosenbrock, &points[i], &result);
+		PowellMethod(Rosenbrock, &points[i], &result, &itr);
 
 		printf("Point %d:\n", i + 1);
 		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);
+		printf("Iteration used to compute: %d\n", itr);
 		printf("Final position:\n");
 		printPoint(result);
 	}
