@@ -2,6 +2,7 @@
 #include "nelder.h"
 
 #include <stdio.h>
+#include <math.h>
 
 #include "util.h"
 #include "rosenbrock.h"
