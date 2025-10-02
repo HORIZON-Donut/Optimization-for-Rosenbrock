@@ -57,8 +57,6 @@ void PowellMethod(double (*f)(double, double), Point* start, Point* point)
 
 	// Define variable for forloop
 	double f_start;
-	double x_old;
-	double y_old;
 
 	double dx;
 	double dy;
