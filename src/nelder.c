@@ -21,7 +21,7 @@ static void reflection(Point xc, Point xw, Point* xr)
 {
 	xr->x = xc.x + ALPHA * (xc.x - xw.x);
 	xr->y = xc.y + ALPHA * (xc.y - xw.y);
-	xr->f = Rosenbrock(xr.x, xr.y);
+	xr->f = Rosenbrock(xr->x, xr->y);
 }
 /*
 def Expansion(Xc, Xr, mseXr, x, y, gamma=2.0):
@@ -34,7 +34,7 @@ static void expansion(Point xc, Point xr, Point* xe)
 {
 	xe->x = xc.x + GAMMA * (xc.x - xr.x);
 	xe->y = xc.y + GAMMA * (xc.y - xr.y);
-	xe->f = Rosenbrock(xe.x, xe.y);
+	xe->f = Rosenbrock(xe->x, xe->y);
 }
 /*
 def Outside_Cont(Xc, Xr, x, y, beta=0.5):
