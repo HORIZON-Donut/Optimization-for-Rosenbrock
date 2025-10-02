@@ -61,7 +61,7 @@ static void mutate(Point *p) {
 }
 
 // Genetic Algorithm main function
-void GeneticAlgorithm(Point *bestResult, Point start, double spread) {
+void GeneticAlgorithm(Point *bestResult, Point start, double spread, unsigned int *itr) {
     srand(time(NULL));
 
     Point population[POP_SIZE];
@@ -70,7 +70,7 @@ void GeneticAlgorithm(Point *bestResult, Point start, double spread) {
 
     *bestResult = population[0];
 
-    for (int gen = 0; gen < MAX_GEN; gen++) {
+    for (*itr = 0; *itr < MAX_GEN; *itr += 1) {
         // Find best in population
         for (int i = 0; i < POP_SIZE; i++) {
             if (population[i].f < bestResult->f) {
