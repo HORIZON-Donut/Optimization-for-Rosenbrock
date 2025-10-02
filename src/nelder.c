@@ -17,7 +17,12 @@ def Reflection(Xc, Xw, alpha=1.0):
     """Reflection step."""
     return [Xc[i] + alpha*(Xc[i] - Xw[i]) for i in range(len(Xc))]
 */
-
+static void reflection(Point xc, Point xw, Point* xr)
+{
+	xr->x = xc.x + ALPHA * (xc.x - xw.x);
+	xr->y = xc.y + ALPHA * (xc.y - xw.y);
+	xr->f = Rosenbrock(xr.x, xr.y);
+}
 /*
 def Expansion(Xc, Xr, mseXr, x, y, gamma=2.0):
     """Expansion step."""
