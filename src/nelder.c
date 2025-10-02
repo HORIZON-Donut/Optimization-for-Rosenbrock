@@ -154,6 +154,7 @@ void NelderMeanMethod(Point* start, Point* result)
 
 	while(convergence(simplex, n, EPS_F, EPS_X) == 0 && count <= MAX_ITR)
 	{
+		nelder_step(simplex, n);
 		count++;
 	}
 
