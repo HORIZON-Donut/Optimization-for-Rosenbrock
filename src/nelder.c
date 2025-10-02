@@ -76,23 +76,18 @@ static void centroid(Point* points, int num, Point* result)
 }
 
 // Function for generate vertic point
-static void InitialVertices(Point point, int num, double s, Point* points)
+static void InitialSimplex(Point* simplex, Point start, double step)
 {
-	if(num > 3)
-	{
-		printf("Number of point property are exceed or point data are incompatibility with the function\n");
-		return;
-	}
+	simplex[0] = start;
+	simplex[0].f = Rosenbrock(start.x, start.y);
 
-	for(int i = 0; i < num; i++)
-	{
-		points[i].x = point.x;
-		points[i].y = point.y;
+	simplex[1].x = start.x += step;
+	simplex[1].y = start.y;
+	simplex[1].f = Rosenbrock(simplex[1].x, simplex[1].y);
 
-		if(i == 0) continue;
-		if(i == 1) points[i].x += s;
-		if(i == 2) points[i].y += s;
-	}
+	simplex[2].x = start.x;
+	simplex[2].y = start.y += step;
+	simplex[2].f = Rosenbrock(simplex[2].x, simplex[2].y);
 }
 
 void NelderMeanMethod(double (*f)(double, double), Point* start, Point* result)
