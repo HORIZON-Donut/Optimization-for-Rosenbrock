@@ -12,64 +12,39 @@
 #define RHO 0.5
 #define SIGMA 0.5
 
-/*
-def Reflection(Xc, Xw, alpha=1.0):
-    """Reflection step."""
-    return [Xc[i] + alpha*(Xc[i] - Xw[i]) for i in range(len(Xc))]
-*/
+// reflection step function
 static void reflection(Point xc, Point xw, Point* xr)
 {
 	xr->x = xc.x + ALPHA * (xc.x - xw.x);
 	xr->y = xc.y + ALPHA * (xc.y - xw.y);
 	xr->f = Rosenbrock(xr->x, xr->y);
 }
-/*
-def Expansion(Xc, Xr, mseXr, x, y, gamma=2.0):
-    """Expansion step."""
-    Xe = [Xc[i] + gamma*(Xr[i] - Xc[i]) for i in range(len(Xc))]
-    mseXe = MSE(Xe, x, y)
-    return (Xe if mseXe < mseXr else Xr), min(mseXe, mseXr)
-*/
+
+// expansion step function
 static void expansion(Point xc, Point xr, Point* xe)
 {
 	xe->x = xc.x + GAMMA * (xc.x - xr.x);
 	xe->y = xc.y + GAMMA * (xc.y - xr.y);
 	xe->f = Rosenbrock(xe->x, xe->y);
 }
-/*
-def Outside_Cont(Xc, Xr, x, y, beta=0.5):
-    """Outside contraction."""
-    Xoc = [Xc[i] + beta*(Xr[i] - Xc[i]) for i in range(len(Xc))]
-    return Xoc, MSE(Xoc, x, y)
-*/
+
+// outside contraction step function
 static void outcont(Point xc, Point xr, Point* xoc)
 {
 	xoc->x = xc.x + RHO * (xr.x - xc.x);
 	xoc->y = xc.y + RHO * (xr.y - xc.y);
 	xoc->f = Rosenbrock(xoc->x, xoc->y);
 }
-/*
-def Inside_Cont(Xc, Xw, x, y, beta=0.5):
-    """Inside contraction."""
-    Xic = [Xc[i] - beta*(Xc[i] - Xw[i]) for i in range(len(Xc))]
-    return Xic, MSE(Xic, x, y)
-*/
+
+// inside contraction step function
 static void inscont(Point xc, Point xw, Point* xic)
 {
 	xic->x = xc.x - RHO * (xc.x - xw.x);
 	xic->y = xc.y - RHO * (xc.y - xw.y);
 	xic->f = Rosenbrock(xic->x, xic->y);
 }
-/*
-def Shrinks(points, best, x, y, delta=0.5):
-    """Shrink step."""
-    new_points = [best]  # keep best
-    for pt in points[1:]:
-        new_pt = [best[i] + delta*(pt[i] - best[i]) for i in range(len(best))]
-        new_points.append(new_pt)
-    errors = [MSE(pt, x, y) for pt in new_points]
-    return new_points, errors
-*/
+
+// shrink step function
 static void shrink(Point* points, int n) {
     Point best = points[0];
     for (int i = 1; i < n; i++) {
