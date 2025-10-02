@@ -92,11 +92,10 @@ static void InitialSimplex(Point* simplex, Point start, double step)
 
 void NelderMeanMethod(double (*f)(double, double), Point* start, Point* result)
 {
-	int vertices_num = 3;
-	double s = 0.05;
-	Point vertice[vertices_num];
+	int n = 3;
+	Point simplex[n];
 
-	InitialVertices(*start, vertices_num, s, vertice);
+	InitialSimplex(simplex, *start, 0.05);
 }
 
 /*
