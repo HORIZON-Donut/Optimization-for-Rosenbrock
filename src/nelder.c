@@ -111,6 +111,8 @@ void NelderMeanMethod(Point* start, Point* result)
 	Point simplex[n];
 
 	InitialSimplex(simplex, *start, 0.05);
+
+	*result = simplex[0];
 }
 
 /*
