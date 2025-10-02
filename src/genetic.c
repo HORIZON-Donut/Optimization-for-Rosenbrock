@@ -6,7 +6,6 @@
 #include "util.h"
 
 #define POP_SIZE 50     // number of individuals
-#define MAX_GEN  500    // max generations
 #define CROSS_RATE 0.7  // probability of crossover
 #define MUT_RATE  0.2   // probability of mutation
 #define MUT_STEP  0.1   // mutation step size
@@ -70,7 +69,7 @@ void GeneticAlgorithm(Point *bestResult, Point start, double spread, unsigned in
 
     *bestResult = population[0];
 
-    for (*itr = 0; *itr < MAX_GEN; *itr += 1) {
+    for (*itr = 0; *itr < MAX_ITR; *itr += 1) {
         // Find best in population
         for (int i = 0; i < POP_SIZE; i++) {
             if (population[i].f < bestResult->f) {
