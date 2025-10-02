@@ -37,7 +37,10 @@ int main()
 
 	printf("Nelder mean methos\n");
 	NelderMethodImp(points, 4);
-	
+
+	printf("Genertic algorithm methos\n");
+	GeneticAlgo(points, 4);
+
 	return 0;
 }
 
