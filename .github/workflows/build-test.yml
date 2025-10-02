@@ -10,6 +10,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Setup system
+        run: |
+          sudo apt update
+          sudo apt install build-essential
+
       - name: Prepare build and bin directory
         run: |
           mkdir bin/
