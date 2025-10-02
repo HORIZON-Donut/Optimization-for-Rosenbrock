@@ -7,6 +7,9 @@
 // function use to implement Powell Method
 void PowellMethodImp(Point* points, int num);
 
+// function use to implement Nelder mean Method
+void NelderMethodImp(Point* points, int num);
+
 int main()
 {
 	// Initial starting point
@@ -25,8 +28,25 @@ int main()
 	Point points[4] = {point1, point2, point3, point4};
 
 	PowellMethodImp(points, 4);
+	NelderMethosImp(points, 4);
 	
 	return 0;
+}
+
+void NelderMethodImp(Point* points, int num)
+{
+	Point result;
+
+	for (int i = 0; i < num; i++)
+	{
+		NelderMeanMethod(points[i], result);
+
+		printf("Nelder mean methos\n");
+		printf("Point %d:\n", i + 1);
+		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);
+		printf("Final position:\n");
+		printPoint(result);
+	}
 }
 
 void PowellMethodImp(Point* points, int num)
@@ -37,6 +57,7 @@ void PowellMethodImp(Point* points, int num)
 	{
 		PowellMethod(Rosenbrock, &points[i], &result);
 
+		printf("Powell method\n");
 		printf("Point %d:\n", i + 1);
 		printf("Start point: x = %lf, y = %lf\n", points[i].x, points[i].y);
 		printf("Final position:\n");
