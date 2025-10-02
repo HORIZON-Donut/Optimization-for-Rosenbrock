@@ -88,7 +88,7 @@ static void InitialSimplex(Point* simplex, Point start, double step)
 static int convergence(Point* simplex, int num, double eps_f, double eps_x)
 {
 	Point best = simplex[0];
-	Point wors = simplex[n-1];
+	Point wors = simplex[ num - 1];
 
 	double f_range = fabs(wors.f - best.f);
 	double dx = fabs(wors.x - best.x);
