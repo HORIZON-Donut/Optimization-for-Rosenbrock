@@ -68,12 +68,12 @@ static int converged(Point* point)
 	return 0;
 }
 // Genetic Algorithm main function
-void GeneticAlgorithm(Point start, Point *bestResult, double spread, unsigned int *itr) {
+void GeneticAlgorithm(Point* start, Point *bestResult, double spread, unsigned int *itr) {
     srand(time(NULL));
 
     Point population[POP_SIZE];
     Point newPop[POP_SIZE];
-    initPopulation(population, POP_SIZE, start, spread);
+    initPopulation(population, POP_SIZE, *start, spread);
 
     *bestResult = population[0];
 
