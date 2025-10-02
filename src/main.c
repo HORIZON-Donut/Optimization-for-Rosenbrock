@@ -3,7 +3,7 @@
 #include "util.h"
 #include "rosenbrock.h"
 #include "powell.h"
-
+#include "nelder.h"
 // function use to implement Powell Method
 void PowellMethodImp(Point* points, int num);
 
@@ -28,7 +28,7 @@ int main()
 	Point points[4] = {point1, point2, point3, point4};
 
 	PowellMethodImp(points, 4);
-	NelderMethosImp(points, 4);
+	NelderMethodImp(points, 4);
 	
 	return 0;
 }
@@ -39,7 +39,7 @@ void NelderMethodImp(Point* points, int num)
 
 	for (int i = 0; i < num; i++)
 	{
-		NelderMeanMethod(points[i], result);
+		NelderMeanMethod(&points[i], &result);
 
 		printf("Nelder mean methos\n");
 		printf("Point %d:\n", i + 1);
