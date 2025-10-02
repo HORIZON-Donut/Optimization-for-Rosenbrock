@@ -4,6 +4,6 @@
 
 #include "util.h"
 
-void NelderMeanMethod(double (*f)(double, double), Point* start, Point* result);
+void NelderMeanMethod(Point* start, Point* result);
 
 #endif

@@ -105,7 +105,7 @@ static int convergence(Point* simplex, int num, double eps_f, double eps_x)
 }
 
 // Main nelder mean method function
-void NelderMeanMethod(double (*f)(double, double), Point* start, Point* result)
+void NelderMeanMethod(Point* start, Point* result)
 {
 	int n = 3;
 	Point simplex[n];
