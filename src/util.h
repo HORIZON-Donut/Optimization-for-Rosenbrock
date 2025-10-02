@@ -3,6 +3,8 @@
 #define INCLUDE_UTILITY_H
 
 #define MAX_ITR 0xFFFF
+#define EPS_F 1e-10
+#define EPS_X 1e-8
 
 typedef struct Point
 {
