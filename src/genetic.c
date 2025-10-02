@@ -94,12 +94,6 @@ void GeneticAlgorithm(Point *bestResult, Point start, double spread) {
         for (int i = 0; i < POP_SIZE; i++) {
             population[i] = newPop[i];
         }
-
-        // Optional debug
-        if (gen % 50 == 0) {
-            printf("Gen %d: Best = (%.6f, %.6f), f = %.6f\n",
-                   gen, bestResult->x, bestResult->y, bestResult->f);
-        }
     }
 }
 
