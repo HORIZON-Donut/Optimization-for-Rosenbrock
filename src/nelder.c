@@ -6,6 +6,11 @@
 #include "util.h"
 #include "rosenbrock.h"
 
+#define ALPHA 1.0
+#define GAMMA 2.0
+#define RHO 0.5
+#define SIGMA 0.5
+
 /*
 def Reflection(Xc, Xw, alpha=1.0):
     """Reflection step."""
