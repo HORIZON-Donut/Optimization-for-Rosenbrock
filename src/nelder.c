@@ -42,14 +42,24 @@ def Outside_Cont(Xc, Xr, x, y, beta=0.5):
     Xoc = [Xc[i] + beta*(Xr[i] - Xc[i]) for i in range(len(Xc))]
     return Xoc, MSE(Xoc, x, y)
 */
-
+static void outcont(Point xc, Point xr, Point* xoc)
+{
+	xoc->x = xc.x + RHO * (xr.x - xc.x);
+	xoc->y = xc.y + RHO * (xr.y - xc.y);
+	xoc->f = Rosenbrock(xoc->x, xoc->y);
+}
 /*
 def Inside_Cont(Xc, Xw, x, y, beta=0.5):
     """Inside contraction."""
     Xic = [Xc[i] - beta*(Xc[i] - Xw[i]) for i in range(len(Xc))]
     return Xic, MSE(Xic, x, y)
 */
-
+static void inscont(Point xc, Point xw, Point* xic)
+{
+	xic->x = xc.x - RHO * (xc.x - xw.x);
+	xic->y = xc.y - RHO * (xc.y - xw.y);
+	xic->f = Rosenbrock(xic->x, xic->y);
+}
 /*
 def Shrinks(points, best, x, y, delta=0.5):
     """Shrink step."""
