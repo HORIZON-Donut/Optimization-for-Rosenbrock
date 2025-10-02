@@ -16,7 +16,7 @@ all: $(BUILD_DIR) $(TARGET)
 
 $(TARGET): $(OBJS)
 	@echo "Linking $@"
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.c
 	@echo "Compiling $<"
