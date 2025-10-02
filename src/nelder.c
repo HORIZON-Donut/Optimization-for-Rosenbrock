@@ -118,6 +118,7 @@ void NelderMeanMethod(Point* start, Point* result)
 		count++;
 	}
 
+	sortPoint(simplex, n);
 	*result = simplex[0];
 }
 
