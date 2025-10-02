@@ -38,7 +38,7 @@ int main()
 
 void NelderMethodImp(Point* points, int num)
 {
-	int itr = 0;
+	unsigned int itr = 0;
 	Point result;
 
 	for (int i = 0; i < num; i++)
@@ -56,7 +56,7 @@ void NelderMethodImp(Point* points, int num)
 
 void PowellMethodImp(Point* points, int num)
 {
-	int itr = 0;
+	unsigned int itr = 0;
 	Point result;
 
 	for (int i = 0; i < num; i++)

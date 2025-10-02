@@ -8,7 +8,7 @@
 
 static double line_search(double (*f)(double, double), double x, double y, double dx, double dy)
 {
-	int count = 0;
+	unsigned int count = 0;
 
 	double lb = -10; // Set Left Bound
 	double rb = 10; // Set Right Bound
@@ -47,7 +47,7 @@ static double line_search(double (*f)(double, double), double x, double y, doubl
 	return (lb + rb) / 2.0;
 }
 
-void PowellMethod(double (*f)(double, double), Point* start, Point* point, int* itr)
+void PowellMethod(double (*f)(double, double), Point* start, Point* point, unsigned int* itr)
 {
 	// Prepare start x, y variable
 	double x = start->x;

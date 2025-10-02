@@ -144,7 +144,7 @@ static void nelder_step(Point* simplex, int n)
 }
 
 // Main nelder mean method function
-void NelderMeanMethod(Point* start, Point* result, int* itr)
+void NelderMeanMethod(Point* start, Point* result, unsigned int* itr)
 {
 	int n = 3;
 	Point simplex[n];
