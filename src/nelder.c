@@ -7,6 +7,9 @@
 #include "util.h"
 #include "rosenbrock.h"
 
+#define EPS_F 1e-10
+#define EPS_X 1e-8
+
 #define ALPHA 1.0
 #define GAMMA 2.0
 #define RHO 0.5
