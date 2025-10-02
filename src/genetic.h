@@ -3,7 +3,7 @@
 
 #include util.h
 
-void GeneticAlgorithm(Point *bestResult);
+void GeneticAlgorithm(Point *bestResult, Point start, double spread);
 
 #endif
 

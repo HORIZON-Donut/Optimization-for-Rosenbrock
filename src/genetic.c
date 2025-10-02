@@ -61,12 +61,12 @@ static void mutate(Point *p) {
 }
 
 // Genetic Algorithm main function
-void GeneticAlgorithm(Point *bestResult) {
+void GeneticAlgorithm(Point *bestResult, Point start, double spread) {
     srand(time(NULL));
 
     Point population[POP_SIZE];
     Point newPop[POP_SIZE];
-    initPopulation(population, POP_SIZE);
+    initPopulation(population, POP_SIZE, start, spread);
 
     *bestResult = population[0];
 
