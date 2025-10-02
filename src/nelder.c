@@ -62,15 +62,17 @@ static void centroid(Point* points, int num, Point* result)
 {
 	result->x = 0;
 	result->y = 0;
+	result->f = 0;
 
-	for(int i = 0; i < num; i++)
+	for(int i = 0; i < num - 1; i++)
 	{
 		result->x += points[i].x;
 		result->y += points[i].y;
 	}
 
-	result->x = result->x / 2;
-	result->y = result->y / 2;
+	result->x = result->x / (num - 1);
+	result->y = result->y / (num - 1);
+	result->f = Rosenbrock(result->x, result->y);
 }
 
 // Function for generate vertic point
