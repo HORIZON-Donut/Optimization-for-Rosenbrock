@@ -107,6 +107,40 @@ static int convergence(Point* simplex, int num, double eps_f, double eps_x)
 // Nelder step function
 static void nelder_step(Point* simplex, int n)
 {
+	sortPoint(simplex, n);
+
+	Point best = simplex[0];
+	Point worst = simplex[n - 1];
+	Point second_worst = simplex[n - 2];
+
+	Point Xc;
+	Point Xr;
+	Point Xe;
+	Point XoC;
+	Point XiC;
+
+	centroid(simplex, n, &Xc);
+	reflection(Xc, worst, &Xr);
+
+	if (Xr.f < best.f)
+	{
+		expansion(Xc, Xr, &Xe);
+		simplex[n - 1] = (Xe.f < Xr.f) ? Xe : Xr;
+	}
+
+	else if (Xr.f < second_worst.f) simplex[n - 1] = Xr;
+	else if (Xr.f < worst.f)
+	{
+		outcont(Xc, Xr, &XoC);
+		simplex[n - 1] = (XoC.f <= Xr.f) ? XoC : worst;
+	}
+
+	else
+	{
+		inscont(Xc, worst, &XiC);
+		if (XiC.f < worst.f) simplex[n - 1] = XiC;
+		else shrink(simplex, n);	
+	}
 }
 
 // Main nelder mean method function
