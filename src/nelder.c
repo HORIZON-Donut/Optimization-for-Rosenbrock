@@ -108,9 +108,15 @@ static int convergence(Point* simplex, int num, double eps_f, double eps_x)
 void NelderMeanMethod(Point* start, Point* result)
 {
 	int n = 3;
+	int count = 0;
 	Point simplex[n];
 
 	InitialSimplex(simplex, *start, 0.05);
+
+	while(convergence(simplex, n, EPS_F, EPS_X) == 0 && count <= MAX_ITR)
+	{
+		count++;
+	}
 
 	*result = simplex[0];
 }
