@@ -69,8 +69,5 @@ Make sure you have gcc compiler and make installed on your system.
    ```
    ./bin/run
    ```
-   or
-   ```
-   make run
-   ```
 If you're using windows, You may build and run using WSL or attempt manual compile on your own.
+
