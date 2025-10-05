@@ -34,12 +34,15 @@ int main()
 
 	printf("Powell method\n");
 	PowellMethodImp(points, 4);
+	printf("=================\n");
 
 	printf("Nelder mean methos\n");
 	NelderMethodImp(points, 4);
+	printf("=================\n");
 
 	printf("Genertic algorithm methos\n");
 	GeneticAlgo(points, 4);
+	printf("=================\n");
 
 	return 0;
 }
